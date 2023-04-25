@@ -62,6 +62,7 @@
         transition: all 0.3s;
     }
 
+
     .button:hover {
         background-color: #444;
         color: #f5e8e8;
@@ -72,18 +73,76 @@
         from { opacity: 0; }
         to { opacity: 1; }
     }
+    .forgive-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .forgive-container p {
+        margin-bottom: 10px;
+    }
+
+    .forgive-container button {
+        background-color: #f5e8e8;
+        border: 1px solid #444;
+        padding: 10px;
+        margin-left: 10px;
+        font-size: 18px;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+    .forgive-container button:hover {
+        background-color: #444;
+        color: #f5e8e8;
+        text-decoration: none;
+
+.forgive-container {
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+}
+
 </style>
+<script>
+    function getRandomPosition() {
+        const maxX = window.innerWidth - 100;
+        const maxY = window.innerHeight - 50;
+        const x = Math.floor(Math.random() * maxX);
+        const y = Math.floor(Math.random() * maxY);
+        return { x, y };
+    }
+
+    function dodgeNoButton() {
+        const noButton = document.getElementById('no-btn');
+        const position = getRandomPosition();
+        noButton.style.left = position.x + 'px';
+        noButton.style.top = position.y + 'px';
+    }
+</script>
 </head>
 <body>
+
     <h1>Our dilemma / apology</h1>
     <h2 style="text-align: center;">for my tine</h2>
-    <p style="text-align: center;">Hey, thank you for clicking that button hahahaha, this is a good opportunity for me to say the things I've realized these past few days,</p>
-    
+    <p style="text-align: center;">Hey, I hope this mini-website made you feel a bit better emotionally, and thank you for clicking that button. :) I just want to make up with you. These past few days made me realize how I failed to be your best friend, boyfriend, and emotional support. Thinking back, it really is unfair to you that I keep invalidating your feelings and treat you that way, knowing that you are struggling and tired with everything. It shouldn't be like that, and for that, I want to apologize and ask for forgiveness. I want to be the first person to listen to your rants and problems. I want to be the one to comfort you when you're going through a tough time.</p>
     <div class="home-button-container">
         <a href="index.html" class="button">Back to Home</a>
     </div>
-    <div class="last-page-button-container">
-        <a href="#" class="button">Last Page</a>
+    <div class="forgive-container">
+        <p>Will you forgive me?</p>
+        <button class="button" id="yes-btn"onclick="redirectToLink()">Yes</button>
+    <script>
+        function redirectToLink() {
+            window.location.href = "https://i.imgur.com/6bd6cRE.jpg";
+        }
+    </script>
+        <button class="button" id="no-btn" onmouseover="dodgeNoButton()" style="position: absolute;">No</button>
     </div>
 </body>
 </html>
