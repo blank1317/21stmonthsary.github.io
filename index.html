@@ -38,6 +38,16 @@
         max-width: 100%;
         height: auto;
     }
+
+    .fade-out {
+        animation: fadeOut 1s;
+        opacity: 0;
+    }
+
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
 </style>
 </head>
 <body>
@@ -49,8 +59,16 @@
         <h2>for you</h2>
         <p>heyyy, happy monthsary to us, medjo magulo ang page na to pero sana magustuhan mo :)</p>
         <img src="https://i.imgur.com/uHkKlaU.jpg" alt="Romantic setting">
-        <h2><a href="our-story.html">Our Story</a></h2>
-        <p>click mo yan!!!!</p>
+        <h2><a href="javascript:void(0)" onclick="redirectToOurStory()">Our Story</a></h2>
+        <p>click mo yan!!</p>
     </main>
+    <script>
+        function redirectToOurStory() {
+            document.body.classList.add("fade-out");
+            setTimeout(function() {
+                window.location.href = "our-story.html";
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
